@@ -62,8 +62,28 @@ void List::append(int d){
 	}
 	size++;
 }
-
+// 5 7 8null
 //Write List::remove() here
+void List::remove(int idx)
+{
+	Node *current = root;
+	
+	if(idx == 0)
+	{
+		Node *r = root;
+		root = current->next;
+		delete r;
+		return ;
+	}
+	for(int i=0;i<idx-1;i++)
+	{
+		current = current->next;
+	}
+	Node *q = current->next->next;
+	delete current->next;
+	current->next = q;
+}
+
 #include<iostream>
 using namespace std;
 
